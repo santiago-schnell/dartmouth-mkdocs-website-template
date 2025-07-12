@@ -1,0 +1,39 @@
+your-website-name/ # This is your project's root directory
+├── mkdocs.yml     # The configuration file you just provided
+├── README.md      # The comprehensive README for the template
+└── docs/          # This directory holds all your Markdown content and assets
+    [cite_start]├── index.md               # Corresponds to 'Home' [cite: 1]
+    [cite_start]├── about.md               # Corresponds to 'About' [cite: 1]
+    [cite_start]├── research.md            # Corresponds to 'Research' [cite: 1]
+    [cite_start]├── publications/          # Directory for the 'Publications' section [cite: 1]
+    [cite_start]│   ├── index.md           # Corresponds to 'Publications: Overview' [cite: 1]
+    [cite_start]│   ├── selected.md        # Corresponds to 'Publications: Selected Works' [cite: 1]
+    [cite_start]│   ├── preprints.md       # Corresponds to 'Publications: Preprints' [cite: 1]
+    [cite_start]│   └── covers.md          # Corresponds to 'Publications: Covers' [cite: 1]
+    [cite_start]├── teaching.md            # Corresponds to 'Teaching' (Optional) [cite: 1]
+    [cite_start]├── resources.md           # Corresponds to 'Resources' (Optional) [cite: 1]
+    [cite_start]├── contact.md             # Corresponds to 'Contact' (Optional) [cite: 1]
+    ├── assets/                # Directory for static assets like images and fonts
+    │   ├── images/
+    [cite_start]│   │   ├── dartmouth-logo.png # Referenced in mkdocs.yml [cite: 1]
+    [cite_start]│   │   ├── favicon.ico        # Referenced in mkdocs.yml [cite: 1]
+    │   │   └── # ... add your profile picture, project images, etc. here (e.g., your_profile_picture.jpg, placeholder_research.jpg)
+    │   └── fonts/             # Directory for custom font files
+    │       ├── national2/     # Contains National 2 font files (.otf)
+    │       │   ├── National2-Light.otf
+    │       │   ├── National2-Regular.otf
+    │       │   ├── National2-Medium.otf
+    │       │   ├── National2-Bold.otf
+    │       │   └── National2-Extrabold.otf
+    │       └── dartmouth-ruzicka/ # Contains Dartmouth Ruzika font files (.ttf)
+    │           ├── DartmouthRuzicka-Regular.ttf
+    │           ├── DartmouthRuzicka-Italic.ttf
+    │           ├── DartmouthRuzicka-Bold.ttf
+    │           └── DartmouthRuzicka-BoldItalic.ttf
+    ├── stylesheets/           # Directory for custom CSS files
+    [cite_start]│   └── extra.css          # Your custom CSS, referenced in mkdocs.yml [cite: 1]
+    └── javascripts/           # Directory for custom JavaScript files
+        [cite_start]└── extra.js           # Your custom JS (e.g., scroll-to-top), referenced in mkdocs.yml [cite: 1]
+└── overrides/             # Optional: For theme template overrides (e.g., main.html for custom footer HTML)
+    │   ├── partials/
+		└── footer.html          # Example override file

@@ -1,0 +1,35 @@
+{% block extrahead %}
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Font Awesome 6 -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+{% endblock %}
+
+<!-- Custom footer -->
+<div class="custom-footer-wrapper">
+  <div class="custom-footer md-grid">
+    <div class="footer-left">
+      <img src="{{ base_url }}/assets/images/dartmouth/d-pine-logo.png" alt="Dartmouth logo" class="footer-logo">
+      <div class="footer-text">
+        <div><a href="https://www.dartmouth.edu/" target="_blank">Dartmouth</a></div>
+        <div><a href="https://x.dartmouth.edu/" target="_blank">Department of X</a></div>
+        <div><a href="https://school.dartmouth.edu/y/" target="_blank">Department Y</a></div>
+      </div>
+    </div>
+    <div class="footer-right">
+      <div class="footer-links">
+        <a href="mailto:youremail@dartmouth.edu" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://scholar.google.com/" title="Google Scholar">
+          <i class="fas fa-graduation-cap"></i>
+        </a>
+        <a href="https://github.com/" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="{{ base_url }}/assets/files/cv.pdf" title="Curriculum Vitae"><i class="fas fa-file-alt"></i></a>
+      </div>
+      <div class="footer-name">YOUR NAME</div>
+      <div class="footer-name" style="font-size: 0.65rem; margin-top: 0.2rem;">
+        <a href="https://github.com/santiago-schnell/dartmouth-mkdocs-website-template" target="_blank" style="color: #c4dd88; text-decoration: none;">Template</a> made with Materials for MkDocs
+      </div>
+    </div>
+  </div>
+</div>
+

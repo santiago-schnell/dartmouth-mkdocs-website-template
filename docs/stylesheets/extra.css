@@ -1,0 +1,1291 @@
+/*--------------------------------------------------------------------------------------------------*/
+/* Dartmouth MkDocs Theme Customizations                                                            */
+/*--------------------------------------------------------------------------------------------------*/
+/*
+ * File: extra.css
+ * Description: This stylesheet customizes the appearance of a Materials for MkDocs website
+ * to align with Dartmouth College's branding guidelines. It includes custom colors,
+ * typography using Dartmouth-specific fonts, and specialized layouts for various
+ * content elements like cards, admonitions, and footers.
+ * Author: Santiago Schnell
+ * Date: July 11, 2025
+ * License: MIT License
+ *
+ * Contents:
+ * 1.  Dartmouth Branding Colors (Variables and General Application)
+ * 2.  Header and Navigation Bar Styling
+ * 3.  General Link and Button Styling
+ * 4.  Sidebar Navigation Styling
+ * 5.  Font Face Definitions (National 2 and Dartmouth Ruzika)
+ * 6.  Global Typography and Content Area (.md-typeset)
+ * 7.  Admonition (Info, Linkbox, Project Summary) Styling
+ * 8.  Image and Figure Styling
+ * 9.  Custom Footer Styling
+ * 10. Scroll-to-Top Button Styling
+ * 11. Hero Introduction Block Styling
+ * 12. Card Layouts (General, Research, News)
+ * 13. Cover Gallery Styling
+ * 14. Research Project Section Layout
+ * 15. Dark Mode Overrides
+ *
+ * Note: This file is intended to be used as an `extra.css` file in a Materials for MkDocs
+ * project, loaded after the main theme stylesheets.
+ */
+
+
+/*--------------------------------------------------------------------------------------------------*/
+/* 1. Dartmouth Branding Colors & General Application                                               */
+/*--------------------------------------------------------------------------------------------------*/
+
+/* Define Dartmouth-specific colors for easy reference and consistency */
+:root {
+  --md-color-dartmouth-green: #00693e;    /* Official Dartmouth Green */
+  --md-color-darker-green: #004d2a;       /* A darker shade for hover states or accents */
+  --md-color-light-greenish-white: #f7fdf9; /* Very light green, almost white */
+  --md-color-soft-light-green: #c4dd88;   /* A softer, lighter green for highlights */
+  --md-color-dark-forest-green: #0d1e1c;  /* Deep, rich forest green for body text/headings */
+  --md-color-medium-green-gray: #4a7c59;  /* For labels and subtle text */
+  --md-color-light-highlight-green: #a5d75f; /* Light green for contrast (e.g., dark mode links) */
+  --md-color-soft-green-title-bar: #e8f5ee; /* Light green for admonition titles */
+  --md-color-dark-muted-green: #1f2e2b;   /* Muted dark green for dark mode backgrounds */
+  --md-color-darker-muted-green: #2d403c; /* Even darker muted green for dark mode elements */
+  --md-color-white: #ffffff;             /* Standard white */
+  --md-color-light-gray: #e0e0e0;         /* Light gray for dark mode text */
+  --md-color-medium-gray: #666;           /* Medium gray for footer text */
+  --md-color-dark-gray: #333;             /* Dark gray for general text */
+  --md-color-light-gray-border: #e0e0e0;  /* Light gray for borders */
+}
+
+/* Base link styling */
+a {
+  color: var(--md-color-dartmouth-green); /* Dartmouth Green for all links */
+}
+
+a:hover {
+  color: var(--md-color-darker-green); /* Darker green on hover */
+}
+
+/* General button styling */
+.md-button {
+  background-color: var(--md-color-dartmouth-green); /* Dartmouth Green background */
+  color: var(--md-color-white); /* White text */
+}
+
+.md-button:hover {
+  background-color: var(--md-color-darker-green); /* Darker green on hover */
+}
+
+/* Code blocks and general admonition borders */
+.md-typeset code {
+  border: 1px solid var(--md-color-dartmouth-green); /* Dartmouth Green border for inline code */
+  background-color: #f4fdf8; /* Very light green background for code blocks */
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  border-left: 4px solid var(--md-color-dartmouth-green); /* Dartmouth Green left border for admonitions */
+}
+
+.md-typeset .admonition-title {
+  background-color: var(--md-color-soft-green-title-bar); /* Light green for admonition title bars */
+  font-weight: bold;
+}
+
+/*--------------------------------------------------------------------------------------------------*/
+/* 2. Header and Navigation Bar Styling                                                             */
+/*--------------------------------------------------------------------------------------------------*/
+
+/* Add space between the logo and the site name in the header */
+.md-header__title {
+  display: flex;
+  align-items: center; /* Vertically align items */
+}
+
+.md-header__title .md-header__topic {
+  margin-left: 2.25rem; /* Adds space to the left of the site title/topic */
+}
+
+/* Main header and primary tabs background color */
+.md-header,
+.md-tabs {
+  background-color: var(--md-color-dartmouth-green); /* Dartmouth Green background */
+}
+
+/* Color and typography for main navigation links (navbar and tabs) */
+.md-header-nav__link,
+.md-tabs__link {
+  color: var(--md-color-white); /* White text for main nav links */
+  font-variant: small-caps; /* Apply small caps effect */
+  letter-spacing: 0.05em; /* Optional: adjust letter spacing for readability */
+}
+
+/* Hover/focus effect for main navigation links */
+.md-header-nav__link:hover,
+.md-tabs__link:hover,
+.md-header-nav__link:focus,
+.md-tabs__link:focus {
+  color: var(--md-color-soft-light-green); /* Soft light green on hover/focus */
+}
+
+/* Highlight for the active menu tab/item in the header */
+.md-tabs__item--active > .md-tabs__link {
+  font-weight: bold;
+  border-bottom: 2px solid var(--md-color-soft-light-green); /* Soft light green underline */
+  color: var(--md-color-white); /* Keep white text for active tab */
+}
+
+/* Smooth transition for navigation menu items on hover */
+.md-header-nav__link,
+.md-tabs__link {
+  transition: color 0.4s ease-in-out, border-bottom 0.4s ease-in-out; /* Smooth color and border transitions */
+}
+
+/* Fix mobile drawer top background to match Dartmouth Green */
+.md-nav__title {
+  background-color: var(--md-color-dartmouth-green) !important; /* Important to override default MkDocs style */
+  color: var(--md-color-white); /* White text for drawer title */
+}
+
+/* Ensure text inside mobile drawer header is white */
+.md-nav__title .md-nav__button,
+.md-nav__title .md-nav__link,
+.md-nav__title h1,
+.md-nav__title h2,
+.md-nav__title h3 {
+  color: var(--md-color-white) !important; /* White text for consistency */
+}
+
+/* Remove the vertical colored line next to in-page navigation links in sidebars */
+.md-sidebar__inner .md-nav__link {
+  border-left: none !important; /* Removes default colored border */
+  box-shadow: none !important; /* Removes any default shadow */
+}
+
+/*--------------------------------------------------------------------------------------------------*/
+/* 3. General Link and Button Styling (already defined above in section 1 for general links)        */
+/* This section is a placeholder to clarify organization.                                        */
+/*--------------------------------------------------------------------------------------------------*/
+
+/* Links and Buttons are generally handled in Section 1. Specific overrides for different contexts
+   (like within admonitions or cards) are handled in their respective sections. */
+
+
+/*--------------------------------------------------------------------------------------------------*/
+/* 4. Sidebar Navigation Styling                                                                    */
+/*--------------------------------------------------------------------------------------------------*/
+
+/* Ensure active sidebar navigation item text is visible and styled */
+.md-nav__link {
+  color: var(--md-color-dark-forest-green) !important; /* Dark text on white background for readability */
+  font-variant: normal; /* Override small-caps from main nav if inherited */
+  letter-spacing: normal; /* Reset letter spacing */
+}
+
+.md-nav__item--active > .md-nav__link {
+  font-weight: bold;
+  border-left: 3px solid var(--md-color-dartmouth-green); /* Highlight with Dartmouth green border */
+  background-color: var(--md-color-light-greenish-white); /* Soft highlight background */
+}
+
+/* Light mode: style active Table of Contents (TOC) section links */
+:root,
+[data-md-color-scheme="default"] {
+  .md-nav--secondary .md-nav__link--active {
+    font-weight: 600;
+    background-color: var(--md-color-soft-green-title-bar); /* Light green tint */
+    color: var(--md-color-darker-green) !important; /* Darker green text */
+    border-left: none !important; /* Ensure no left border */
+    box-shadow: none !important; /* Ensure no shadow */
+  }
+}
+
+/* Light mode: style hovered TOC items */
+:root,
+[data-md-color-scheme="default"] {
+  .md-nav--secondary .md-nav__link:hover {
+    background-color: var(--md-color-soft-green-title-bar); /* Light green tint on hover */
+    color: var(--md-color-darker-green); /* Darker green text on hover */
+    font-weight: 500;
+  }
+}
+
+
+/*--------------------------------------------------------------------------------------------------*/
+/* 5. Font Face Definitions (National 2 and Dartmouth Ruzika)                                       */
+/*--------------------------------------------------------------------------------------------------*/
+
+/* National 2 Font Family - For body text and general UI elements */
+@font-face {
+  font-family: 'National 2';
+  src: url('../assets/fonts/national2/National2-Light.otf') format('opentype');
+  font-weight: 300; /* Light weight */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'National 2';
+  src: url('../assets/fonts/national2/National2-Regular.otf') format('opentype');
+  font-weight: 400; /* Regular weight */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'National 2';
+  src: url('../assets/fonts/national2/National2-Medium.otf') format('opentype');
+  font-weight: 500; /* Medium weight */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'National 2';
+  src: url('../assets/fonts/national2/National2-Bold.otf') format('opentype');
+  font-weight: 700; /* Bold weight */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'National 2';
+  src: url('../assets/fonts/national2/National2-Extrabold.otf') format('opentype');
+  font-weight: 800; /* Extra Bold weight */
+  font-style: normal;
+}
+
+/* Dartmouth Ruzika Font Family - Typically used for headings */
+@font-face {
+  font-weight: 400; /* Regular weight */
+  font-family: "Dartmouth Ruzika";
+  font-style: normal;
+  src: url('../assets/fonts/dartmouth-ruzicka/DartmouthRuzicka-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-weight: 400; /* Regular Italic weight */
+  font-family: "Dartmouth Ruzika";
+  font-style: italic;
+  src: url('../assets/fonts/dartmouth-ruzicka/DartmouthRuzicka-Italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-weight: 700; /* Bold weight */
+  font-family: "Dartmouth Ruzika";
+  font-style: normal;
+  src: url('../assets/fonts/dartmouth-ruzicka/DartmouthRuzicka-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-weight: 700; /* Bold Italic weight */
+  font-family: "Dartmouth Ruzika";
+  font-style: italic;
+  src: url('../assets/fonts/dartmouth-ruzicka/DartmouthRuzicka-BoldItalic.ttf') format('truetype');
+}
+
+/*--------------------------------------------------------------------------------------------------*/
+/* 6. Global Typography and Content Area (.md-typeset)                                              */
+/*--------------------------------------------------------------------------------------------------*/
+
+/* Apply National 2 font site-wide and set base body text color */
+html,
+body {
+  font-family: 'National 2', Arial, sans-serif !important; /* Primary font for the entire site */
+  color: var(--md-color-dark-forest-green); /* Dark Rich Forest Green for default text color */
+}
+
+/* General typography settings for the main content area (MkDocs .md-typeset) */
+.md-typeset {
+  font-weight: 300; /* National 2 Light for general body text */
+  font-size: 0.93rem; /* Slightly larger base font size */
+  line-height: 1.6; /* Comfortable line spacing */
+  letter-spacing: 0.1px; /* Slight letter spacing */
+  max-width: 80ch; /* Maximum width for content for readability */
+  margin: 0 auto; /* Center the content block */
+}
+
+/* Headings (H1-H4) using Dartmouth Ruzika font */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4 {
+  font-family: "Dartmouth Ruzika", serif; /* Dartmouth Ruzika for main headings */
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+  color: var(--md-color-dark-forest-green); /* Dark Rich Forest Green for headings */
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Specific font sizes and weights for each heading level (H1-H4) */
+.md-typeset h1 {
+  font-weight: 400; /* Regular (400) */
+  font-size: clamp(36px, 11.25vw, 70px); /* Responsive font size */
+}
+
+.md-typeset h2 {
+  font-weight: 400; /* Regular (400) */
+  font-size: clamp(30px, 9.375vw, 50px);
+}
+
+.md-typeset h3 {
+  font-weight: 400; /* Regular (400) */
+  font-size: clamp(24px, 7.5vw, 40px);
+}
+
+.md-typeset h4 {
+  font-weight: 400; /* Regular (400) */
+  font-size: clamp(22px, 6.875vw, 35px);
+}
+
+/* Smaller headings (H5-H6) using National 2 font */
+.md-typeset h5 {
+  font-family: "National 2", sans-serif;
+  font-weight: 500; /* National 2 Medium */
+  font-size: clamp(18px, 5.625vw, 22px);
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+}
+
+.md-typeset h6 {
+  font-family: "National 2", sans-serif;
+  font-weight: 500; /* National 2 Medium */
+  font-size: clamp(16px, 5vw, 20px);
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+}
+
+/* Strong/bold text styling */
+.md-typeset strong {
+  font-weight: 600; /* A good weight for emphasis */
+}
+
+/* General paragraph styling */
+.md-typeset p {
+  font-family: "National 2", sans-serif;
+  font-weight: 300; /* National 2 Light for paragraphs */
+  font-size: clamp(18px, 1rem + 1vw, 20px); /* Responsive font size */
+  line-height: 1.5;
+  letter-spacing: -0.3px;
+  margin-bottom: 1rem; /* Spacing below paragraphs */
+}
+
+/* Styling for list items to match paragraph typography */
+.md-typeset ul,
+.md-typeset ol,
+.md-typeset li {
+  font-family: "National 2", sans-serif;
+  font-weight: 300; /* National 2 Light for lists */
+  font-size: clamp(18px, 1rem + 1vw, 20px); /* Responsive font size */
+  line-height: 1.5;
+  letter-spacing: -0.3px;
+  margin-bottom: 1rem;
+}
+
+/* Optional: Emphasized text within lists */
+.md-typeset li strong {
+  font-weight: 600;
+}
+
+/* Blockquote styling */
+.md-typeset blockquote {
+  font-style: italic;
+  color: #444; /* Dark gray for blockquote text */
+  border-left: 4px solid var(--md-color-dartmouth-green); /* Dartmouth Green left border */
+  padding-left: 1rem;
+}
+
+/*--------------------------------------------------------------------------------------------------*/
+/* 7. Admonition (Info, Linkbox, Project Summary) Styling                                          */
+/*--------------------------------------------------------------------------------------------------*/
+
+/* Custom Styling for 'info' Admonition Box with Soft Shadow (Light Mode) */
+.md-typeset .admonition.info,
+.md-typeset details.info {
+  background-color: var(--md-color-light-greenish-white); /* Very light greenish-white background */
+  border-left: 4px solid var(--md-color-dartmouth-green); /* Dartmouth Green border */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  color: var(--md-color-dark-forest-green); /* Readable dark text */
+}
+
+.md-typeset .admonition.info .admonition-title,
+.md-typeset details.info .admonition-title {
+  background-color: var(--md-color-soft-green-title-bar); /* Light green title bar */
+  color: var(--md-color-darker-green); /* Darker green title text */
+  font-weight: 600;
+}
+
+/* Custom styling for 'linkbox' admonition */
+.md-typeset .admonition.linkbox,
+.md-typeset details.linkbox {
+  background-color: var(--md-color-light-greenish-white);
+  border-left: 4px solid var(--md-color-dartmouth-green);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  margin: 1.5rem 0;
+}
+
+.md-typeset .admonition.linkbox .admonition-title {
+  background-color: var(--md-color-soft-green-title-bar);
+  color: var(--md-color-darker-green);
+  font-weight: 600;
+  font-family: "National 2", Arial, sans-serif;
+}
+
+.md-typeset .admonition.linkbox a {
+  color: var(--md-color-dartmouth-green);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.md-typeset .admonition.linkbox a:hover {
+  text-decoration: underline;
+}
+
+/* Custom 'project-summary' admonition block (no title bar) */
+.md-typeset .admonition.project-summary,
+.md-typeset details.project-summary {
+  background-color: var(--md-color-light-greenish-white); /* Light green in light mode */
+  border-left: 4px solid var(--md-color-dartmouth-green); /* Dartmouth green border */
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  box-shadow: none; /* Remove any default shadow */
+  border-radius: 0; /* No rounded corners */
+  border-top: none; /* Remove other borders */
+  border-right: none;
+  border-bottom: none;
+}
+
+/* Hide the title bar for 'project-summary' admonition */
+.md-typeset .admonition.project-summary > .admonition-title {
+  display: none;
+}
+
+/* Improve text readability and spacing within project-summary boxes */
+.md-typeset .admonition.project-summary p {
+  font-size: 0.95rem;
+  font-style: italic; /* Text within is italic */
+  color: var(--md-color-dark-forest-green); /* Dark text color */
+  margin: 0.5rem 0; /* Reduced top/bottom margin for paragraphs */
+}
+
+
+/*--------------------------------------------------------------------------------------------------*/
+/* 8. Image and Figure Styling                                                                      */
+/*--------------------------------------------------------------------------------------------------*/
+
+/* Default light mode figure caption styling */
+:root .figure-caption {
+  font-style: normal; /* Ensure captions are not italic by default */
+}
+
+.figure-caption {
+  font-size: 0.78rem;
+  color: #444444; /* Dark gray for captions */
+  font-style: normal !important; /* Override any potential italics */
+  text-align: left;
+  line-height: 1.4;
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+  padding-left: 0.25rem;
+}
+
+/* Image alignment within content */
+img[align="right"] {
+  float: right;
+  margin-left: 1rem; /* Space to the left of the image */
+}
+
+img[align="left"] {
+  float: left;
+  margin-right: 1rem; /* Space to the right of the image */
+}
+
+img[align="center"] {
+  display: block; /* Make it a block element */
+  margin: 0 auto; /* Center the image horizontally */
+}
+
+
+/*--------------------------------------------------------------------------------------------------*/
+/* 9. Custom Footer Styling                                                                         */
+/*--------------------------------------------------------------------------------------------------*/
+
+/* Wrapper for the custom footer to control background and padding */
+.custom-footer-wrapper {
+  background-color: #1a3f2a; /* A dark green background for the footer wrapper */
+  padding: 1rem 0 0.30rem 0; /* Padding around the footer content, extra bottom for scroll button */
+}
+
+/* Main custom footer container */
+.custom-footer {
+  display: flex;
+  justify-content: space-between; /* Distribute items with space between */
+  align-items: flex-start; /* Align items to the start of the cross-axis */
+  background-color: #1a3f2a; /* Dark green background */
+  font-family: 'National 2', Arial, sans-serif;
+  flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
+  padding: 1rem 0; /* Vertical padding, no horizontal padding as controlled by wrapper */
+}
+
+/* Left section of the footer (logo and text) */
+.footer-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem; /* Space between logo and text */
+}
+
+/* Styling for the footer logo */
+.footer-logo {
+  height: 70px; /* Fixed height for the logo */
+  margin-top: 0.25rem; /* Gentle vertical alignment adjustment */
+  vertical-align: middle; /* Align middle with text, though flexbox handles better */
+}
+
+/* Styling for the main text block in the footer */
+.footer-text {
+  font-size: 0.72rem;
+  color: var(--md-color-white); /* White text */
+  font-weight: 300; /* National 2 Light */
+  line-height: 1.4;
+}
+
+/* Links within the footer text */
+.footer-text a {
+  color: var(--md-color-soft-light-green); /* Soft light green for links */
+  text-decoration: none; /* No underline by default */
+  font-weight: 400; /* Regular weight for links */
+}
+
+.footer-text a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* Right section of the footer (social links and name) */
+.footer-right {
+  text-align: right; /* Align content to the right */
+}
+
+/* Social media/external links in the footer */
+.footer-links a {
+  color: var(--md-color-soft-light-green); /* Soft light green for icons/links */
+  margin-left: 0.8rem; /* Space between links */
+  font-size: 1.2rem; /* Larger icon size */
+}
+
+.footer-links a:hover {
+  color: var(--md-color-white); /* White on hover */
+}
+
+/* Name/credit text in the footer */
+.footer-name {
+  color: var(--md-color-white); /* White text */
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  padding-bottom: 0rem;
+}
+
+/* Responsive adjustments for the footer on smaller screens (max-width: 768px) */
+@media (max-width: 768px) {
+  .custom-footer {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text within columns */
+  }
+  .footer-left,
+  .footer-right {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-right {
+    text-align: center; /* Ensure right section text is centered */
+    padding-bottom: 5rem; /* Optional: add bottom padding */
+  }
+  .footer-logo {
+    height: 60px; /* Smaller logo on mobile */
+    margin-top: 0;
+  }
+  .footer-links a {
+    margin: 0 0.4rem; /* Reduced space between social links */
+  }
+}
+
+/* Adjust padding for the main content area to accommodate the custom footer */
+.md-content {
+  padding-bottom: 3rem; /* Ensures content doesn't get hidden behind footer */
+}
+
+/* MkDocs default footer styling adjustments */
+.md-footer {
+  border-top: 2px solid var(--md-color-dartmouth-green); /* Dartmouth Green separator line */
+  padding-top: 1rem;
+  background-color: var(--md-color-dartmouth-green); /* Dartmouth Green background */
+  /* Alternative background-color: var(--md-color-light-greenish-white); */
+}
+
+
+/*--------------------------------------------------------------------------------------------------*/
+/* 10. Scroll-to-Top Button Styling                                                                 */
+/*--------------------------------------------------------------------------------------------------*/
+
+#scrollTopBtn {
+  display: none; /* Hidden by default, JavaScript controls visibility */
+  position: fixed; /* Fixed position relative to the viewport */
+  bottom: 20px;
+  right: max(1rem, calc(50% - 600px)); /* Aligns button with grid content max-width (600px is arbitrary here based on an assumed content width) */
+  right: 10px; /* Pushes button further right from the edge */
+  z-index: 99; /* Ensure it's above other content */
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: var(--md-color-light-highlight-green); /* Light Green background */
+  cursor: pointer; /* Indicate it's clickable */
+  padding: 10px 15px;
+  border-radius: 8px; /* Slightly rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Soft shadow */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+/* Hover effect for the scroll-to-top button */
+#scrollTopBtn:hover {
+  background-color: #8dcf39; /* Slightly darker green on hover */
+}
+
+/* Scroll-to-Top Arrow Hover Animation (SVG icon inside the button) */
+#scrollTopBtn svg {
+  transition: transform 0.2s ease-in-out; /* Smooth transform for the SVG */
+}
+
+#scrollTopBtn:hover svg {
+  transform: scale(1.2); /* Slightly enlarge the arrow on hover */
+}
+
+
+/*--------------------------------------------------------------------------------------------------*/
+/* 11. Hero Introduction Block Styling with Side Image                                              */
+/*--------------------------------------------------------------------------------------------------*/
+
+/* Base styling for the hero-intro admonition, acting as a flex container */
+.md-typeset .admonition.hero-intro,
+.md-typeset details.hero-intro {
+  display: flex;
+  flex-wrap: wrap; /* Allow content to wrap */
+  align-items: center; /* Vertically center items */
+  justify-content: space-between; /* Space out text and image */
+  gap: 2rem; /* Gap between text and image */
+  border: none; /* No border for the admonition box */
+  background: transparent; /* Transparent background */
+  box-shadow: none; /* No shadow */
+  padding: 0; /* No internal padding */
+  margin-top: 2rem; /* Top margin for spacing */
+}
+
+/* Hide the "hero-intro" admonition title label */
+.md-typeset .admonition.hero-intro > .admonition-title {
+  display: none;
+}
+
+/* Text block within the hero introduction */
+.hero-intro .hero-text {
+  flex: 1 1 400px; /* Allows text to grow/shrink, with a base width of 400px */
+  min-width: 280px; /* Minimum width for the text block */
+  font-family: "National 2", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Image block within the hero introduction */
+.hero-intro .hero-image {
+  flex: 1 1 400px; /* Allows image to grow/shrink, with a base width of 400px */
+  min-width: 280px; /* Minimum width for the image block */
+  text-align: center; /* Center the image if it's smaller than its container */
+}
+
+.hero-intro .hero-image img {
+  max-width: 100%; /* Ensure image fits within its container */
+  border-radius: 8px; /* Rounded corners for the image */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for the image */
+}
+
+/* Responsive stacking for hero introduction on smaller screens (max-width: 768px) */
+@media (max-width: 768px) {
+  .md-typeset .admonition.hero-intro,
+  .md-typeset details.hero-intro {
+    flex-direction: column; /* Stack text and image vertically */
+  }
+}
+
+
+/*--------------------------------------------------------------------------------------------------*/
+/* 12. Card Layouts (General, Research, News)                                                       */
+/*--------------------------------------------------------------------------------------------------*/
+
+/* Grid layout for displaying cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Responsive grid columns */
+  gap: 1rem; /* Gap between cards */
+  margin-top: 2rem;
+}
+
+/* Base card container styling */
+.card {
+  background-color: var(--md-color-white);
+  border-radius: 10px;
+  border: 1px solid var(--md-color-light-gray-border);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  overflow: hidden; /* Ensures content stays within rounded corners */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease; /* Smooth hover effect */
+}
+
+.card:hover {
+  transform: translateY(-3px); /* Lift card slightly on hover */
+}
+
+/* Card image styling */
+.card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover; /* Ensures image covers its area without distortion */
+}
+
+/* Card content padding */
+.card-body {
+  padding: 0.9rem; /* Slightly smaller padding */
+  font-family: 'National 2', Arial, sans-serif !important;
+}
+
+/* Label above the card title */
+.card-label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--md-color-medium-green-gray); /* Greenish-gray color for labels */
+  margin-bottom: 0 !important; /* Remove bottom margin */
+  letter-spacing: 0.5px;
+  font-family: 'National 2', Arial, sans-serif !important;
+  display: block;
+  line-height: 1.2;
+}
+
+/* Reduce spacing between label and title */
+.card-label + .card-title {
+  margin-top: 0.1rem !important;
+}
+
+/* Card title styling */
+.card-title {
+  font-size: 1.10rem !important;
+  font-weight: 700 !important; /* Bold weight */
+  line-height: 1.35;
+  margin-bottom: 0.5rem !important;
+  font-family: 'Dartmouth Ruzicka', Georgia, serif !important; /* Ruzika for card titles */
+}
+
+.card-title a {
+  color: #1a3f2a; /* Dark green for card title links */
+  text-decoration: none;
+}
+
+.card-title a:hover {
+  text-decoration: underline;
+}
+
+/* Card paragraph text styling */
+.card-body p,
+.card-body p:last-child {
+  font-size: 0.82rem !important;
+  font-weight: 300 !important; /* National 2 Light */
+  line-height: 1.55;
+  color: var(--md-color-dark-gray); /* Dark gray text */
+  font-family: 'National 2', Arial, sans-serif !important;
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+
+/* "View all" link styling */
+.md-typeset .view-all-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--md-color-dartmouth-green);
+  text-decoration: none;
+}
+
+.md-typeset .view-all-link:hover {
+  text-decoration: underline;
+}
+
+/* Specific styling for 'research-card' type */
+.card.research-card {
+  display: block;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--md-color-light-gray-border);
+  background-color: var(--md-color-white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  font-family: "National 2", Arial, sans-serif;
+  transition: transform 0.2s ease;
+}
+
+.card.research-card:hover {
+  transform: translateY(-2px);
+}
+
+.card.research-card a {
+  color: var(--md-color-dartmouth-green);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.card.research-card a:hover {
+  text-decoration: underline;
+}
+
+/* Specific styling for 'news-card' type */
+.card.news-card {
+  background-color: var(--md-color-white);
+  border-radius: 10px;
+  border: 1px solid var(--md-color-light-gray-border);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.card.news-card:hover {
+  transform: translateY(-3px);
+}
+
+.card.news-card .card-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.8rem;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.card.news-card strong {
+  display: block;
+  font-family: "Dartmouth Ruzicka", Georgia, serif !important;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+  color: #1a3f2a;
+}
+
+.card.news-card p {
+  font-size: 0.88rem;
+  color: var(--md-color-dark-gray);
+  font-family: "National 2", Arial, sans-serif !important;
+  line-height: 1.55;
+  margin-bottom: 0.5rem;
+}
+
+.card.news-card a {
+  font-weight: 500;
+  color: var(--md-color-dartmouth-green);
+}
+
+.card.news-card a:hover {
+  text-decoration: underline;
+}
+
+/*--------------------------------------------------------------------------------------------------*/
+/* 13. Cover Gallery Styling                                                                        */
+/*--------------------------------------------------------------------------------------------------*/
+
+/* Wrapper for the cover gallery, providing background and padding */
+.cover-gallery-wrapper {
+  background-color: var(--md-color-light-greenish-white); /* Very light green background */
+  padding: 2rem 1rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+/* Grid container for the cover items */
+.cover-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsive grid for covers */
+  gap: 2rem;
+  justify-items: center; /* Center items horizontally within their grid cell */
+  align-items: start; /* Align items to the top of their grid cell */
+  margin-top: 2rem;
+}
+
+.cover-item {
+  text-align: center; /* Center content within each cover item */
+}
+
+.cover-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for covers */
+  transition: transform 0.2s ease; /* Smooth hover effect */
+}
+
+.cover-item img:hover {
+  transform: scale(1.03); /* Slightly enlarge image on hover */
+}
+
+/* Journal names in cover figure captions */
+.cover-item .journal-name {
+  color: var(--md-color-dartmouth-green); /* Deep green for light mode */
+  font-weight: 500;
+  font-family: "Dartmouth Ruzika", Georgia, serif;
+}
+
+
+/*--------------------------------------------------------------------------------------------------*/
+/* 14. Research Project Section Layout                                                              */
+/*--------------------------------------------------------------------------------------------------*/
+
+/* Container for a research project section, allowing floated images */
+.project-section {
+  display: block;
+  overflow: auto; /* Ensures float containment (clears floats) */
+  margin-bottom: 2rem;
+}
+
+/* Text block within a project section */
+.project-text {
+  flex: 1 1 55%; /* Responsive sizing */
+  min-width: 280px;
+}
+
+/* Figure (image + caption) block within a project section */
+.project-figure {
+  flex: 1 1 40%; /* Responsive sizing */
+  min-width: 250px;
+  display: flex;
+  flex-direction: column; /* Stack image and caption vertically */
+}
+
+.project-figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Caption styling for project figures */
+.project-caption {
+  font-size: 0.8rem;
+  color: #666; /* Medium gray text */
+  text-align: left;
+  margin-top: 0.5rem;
+  line-height: 1.3;
+}
+
+/* Float image to the right within the text flow */
+.project-figure.float-right {
+  float: right;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  width: 40%; /* Relative width */
+  max-width: 320px; /* Maximum width */
+}
+
+/* Float image to the left within the text flow */
+.project-figure.float-left {
+  float: left;
+  margin-right: 1.5rem;
+  margin-bottom: 1rem;
+  width: 40%;
+  max-width: 320px;
+}
+
+
+/*--------------------------------------------------------------------------------------------------*/
+/* 15. Dark Mode Overrides (data-md-color-scheme="slate")                                          */
+/*--------------------------------------------------------------------------------------------------*/
+
+/* General text and heading colors for dark mode */
+[data-md-color-scheme="slate"] {
+  .md-typeset h1,
+  .md-typeset h2,
+  .md-typeset h3,
+  .md-typeset h4,
+  .md-nav__link, /* Sidebar links */
+  .md-typeset p,
+  .md-typeset li,
+  .md-typeset blockquote {
+    color: var(--md-color-light-gray) !important; /* Light gray text for readability */
+  }
+
+  /* Active sidebar item in dark mode */
+  .md-nav__item--active > .md-nav__link {
+    color: var(--md-color-white) !important;
+    border-left: 3px solid var(--md-color-soft-light-green); /* Light green border */
+    background-color: var(--md-color-dark-muted-green); /* Muted dark green background */
+  }
+
+  /* Banner styling in dark mode */
+  .md-banner {
+    background-color: var(--md-color-darker-green);
+    color: var(--md-color-white);
+  }
+
+  /* Active TOC section links in dark mode */
+  .md-nav--secondary .md-nav__link--active {
+    font-weight: 600;
+    background-color: var(--md-color-dark-muted-green); /* Dark muted green background */
+    color: var(--md-color-soft-light-green) !important; /* Soft light green text */
+    border-left: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Hovered TOC items in dark mode */
+  .md-nav--secondary .md-nav__link:hover {
+    background-color: var(--md-color-dark-muted-green);
+    color: var(--md-color-soft-light-green);
+    font-weight: 500;
+  }
+
+  /* Info admonition in dark mode */
+  .md-typeset .admonition.info,
+  .md-typeset details.info {
+    background-color: var(--md-color-dark-muted-green); /* Muted green-black background */
+    border-left: 4px solid var(--md-color-soft-light-green); /* Light green border */
+    color: var(--md-color-light-gray);
+  }
+
+  .md-typeset .admonition.info .admonition-title,
+  .md-typeset details.info .admonition-title {
+    background-color: var(--md-color-darker-muted-green);
+    color: var(--md-color-soft-light-green);
+    font-weight: 600;
+  }
+
+  .md-typeset .admonition.info a {
+    color: var(--md-color-light-highlight-green); /* Light green for links */
+  }
+
+  /* General link visibility in dark mode */
+  .md-typeset a {
+    color: var(--md-color-light-highlight-green) !important; /* Light green for contrast */
+  }
+
+  .md-typeset a:hover {
+    color: var(--md-color-soft-light-green) !important;
+    text-decoration: underline;
+  }
+
+  /* Card adjustments in dark mode */
+  .card {
+    background-color: var(--md-color-dark-muted-green);
+    border: 1px solid var(--md-color-darker-muted-green);
+    color: var(--md-color-light-gray);
+  }
+
+  .card-label {
+    color: var(--md-color-light-highlight-green);
+  }
+
+  .card-title {
+    color: var(--md-color-white);
+  }
+
+  .card-body p {
+    color: var(--md-color-light-gray);
+  }
+
+  .card-title a {
+    color: var(--md-color-soft-light-green);
+  }
+
+  .card-title a:hover {
+    color: var(--md-color-light-highlight-green);
+  }
+
+  /* Linkbox in dark mode */
+  .md-typeset .admonition.linkbox,
+  .md-typeset details.linkbox {
+    background-color: var(--md-color-dark-muted-green);
+    border-left: 4px solid var(--md-color-soft-light-green);
+    color: var(--md-color-light-gray);
+  }
+
+  .md-typeset .admonition.linkbox .admonition-title {
+    background-color: var(--md-color-darker-muted-green);
+    color: var(--md-color-soft-light-green);
+    font-weight: 600;
+  }
+
+  .md-typeset .admonition.linkbox a {
+    color: var(--md-color-light-highlight-green);
+  }
+
+  .md-typeset .admonition.linkbox a:hover {
+    color: var(--md-color-soft-light-green);
+    text-decoration: underline;
+  }
+
+  /* Research card in dark mode */
+  .card.research-card {
+    background-color: var(--md-color-dark-muted-green);
+    border: 1px solid var(--md-color-darker-muted-green);
+    color: var(--md-color-light-gray);
+  }
+
+  .card.research-card a {
+    color: var(--md-color-light-highlight-green);
+  }
+
+  /* News card in dark mode */
+  .card.news-card {
+    background-color: var(--md-color-dark-muted-green);
+    border: 1px solid var(--md-color-darker-muted-green);
+    color: var(--md-color-light-gray);
+  }
+
+  .card.news-card strong {
+    color: var(--md-color-white);
+  }
+
+  .card.news-card a {
+    color: var(--md-color-light-highlight-green);
+  }
+
+  /* Cover gallery wrapper in dark mode */
+  .cover-gallery-wrapper {
+    background-color: #2b3c36; /* Soft green-black for dark mode */
+  }
+
+  /* Journal names in cover figure captions in dark mode */
+  .cover-item .journal-name {
+    color: var(--md-color-light-highlight-green); /* Light green for dark mode */
+  }
+
+  /* Project summary in dark mode */
+  .md-typeset .admonition.project-summary,
+  .md-typeset details.project-summary {
+    background-color: var(--md-color-darker-muted-green); /* Softer green for dark mode */
+    border-left: 4px solid var(--md-color-light-highlight-green); /* Light green border */
+    color: var(--md-color-light-gray);
+  }
+
+  .md-typeset .admonition.project-summary p {
+    color: #d8e8d0; /* Slightly off-white for text in dark mode summary */
+  }
+
+  /* Figure captions in dark mode */
+  .figure-caption {
+    color: #cccccc; /* Lighter gray for captions */
+    font-style: normal; /* Ensure it's not italic in dark mode either */
+  }
+}
+
+/* ---- BEGIN: Experimental admonition card styles ----
+/* THIS IS WORK IN PROGRESS */
+ */
+/* Admonition card base */
+/*.md-typeset .admonition.card-news {*/
+/*  background-color: #ffffff;*/
+/*  border: 1px solid #e0e0e0;*/
+/*  border-radius: 10px;*/
+/*  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);*/
+/*  padding: 0;*/
+/*  overflow: hidden;*/
+/*  margin-bottom: 1.5rem;*/
+/*  font-family: 'National 2', Arial, sans-serif;*/
+/*}*/
+
+/*!* Dark mode override *!*/
+/*[data-md-color-scheme="slate"] .md-typeset .admonition.card-news {*/
+/*  background-color: #1f2e2b;*/
+/*  border-color: #2d403c;*/
+/*  color: #e0e0e0;*/
+/*}*/
+
+/*!* Hide admonition label *!*/
+/*.md-typeset .admonition.card-news > .admonition-title {*/
+/*  display: none;*/
+/*}*/
+
+/*!* Image styling *!*/
+/*.md-typeset .admonition.card-news img {*/
+/*  display: block;*/
+/*  width: 100%;*/
+/*  height: auto;*/
+/*  object-fit: cover;*/
+/*}*/
+
+/*!* Card content spacing *!*/
+/*.md-typeset .admonition.card-news .card-label,*/
+/*.md-typeset .admonition.card-news h3,*/
+/*.md-typeset .admonition.card-news p,*/
+/*.md-typeset .admonition.card-news a {*/
+/*  padding-left: 1rem;*/
+/*  padding-right: 1rem;*/
+/*}*/
+
+/*!* Label *!*/
+/*.md-typeset .admonition.card-news .card-label {*/
+/*  display: block;*/
+/*  text-transform: uppercase;*/
+/*  font-size: 0.7rem;*/
+/*  color: #4a7c59;*/
+/*  font-weight: 500;*/
+/*  margin-top: 1rem;*/
+/*  margin-bottom: 0.25rem;*/
+/*  font-family: 'National 2', sans-serif;*/
+/*}*/
+
+/*[data-md-color-scheme="slate"] .md-typeset .admonition.card-news .card-label {*/
+/*  color: #a5d75f;*/
+/*}*/
+
+/*!* Title *!*/
+/*.md-typeset .admonition.card-news h3 {*/
+/*  font-family: 'Dartmouth Ruzika', Georgia, serif;*/
+/*  font-size: 1.05rem;*/
+/*  font-weight: 600;*/
+/*  margin-top: 0.25rem;*/
+/*  margin-bottom: 0.75rem;*/
+/*  color: #1a3f2a;*/
+/*}*/
+
+/*[data-md-color-scheme="slate"] .md-typeset .admonition.card-news h3 {*/
+/*  color: #ffffff;*/
+/*}*/
+
+/*!* Body text *!*/
+/*.md-typeset .admonition.card-news p {*/
+/*  font-family: 'National 2', sans-serif;*/
+/*  font-size: 0.87rem;*/
+/*  line-height: 1.5;*/
+/*  margin-bottom: 1rem;*/
+/*  color: #333;*/
+/*}*/
+
+/*[data-md-color-scheme="slate"] .md-typeset .admonition.card-news p {*/
+/*  color: #e0e0e0;*/
+/*}*/
+
+/*!* Link button *!*/
+/*.md-typeset .admonition.card-news a {*/
+/*  display: inline-block;*/
+/*  font-size: 0.84rem;*/
+/*  font-weight: 500;*/
+/*  padding-bottom: 1rem;*/
+/*  color: #00693e;*/
+/*  font-family: 'National 2', sans-serif;*/
+/*}*/
+
+/*[data-md-color-scheme="slate"] .md-typeset .admonition.card-news a {*/
+/*  color: #a5d75f;*/
+/*}*/
+
+/*.md-typeset .admonition.card-news a:hover {*/
+/*  text-decoration: underline;*/
+/*}*/
+/*---- END: Experimental admonition card styles ---- *!*/
