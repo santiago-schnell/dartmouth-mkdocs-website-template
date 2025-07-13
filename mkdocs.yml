@@ -113,17 +113,17 @@ extra:
 #    Defines the main navigation menu of your site. Customize this to match your content.           #
 #---------------------------------------------------------------------------------------------------
 nav:
-  - Home: index.md                                   # The main landing page.
-  - About: about.md                                  # Information about yourself.
-  - Research: research.md                             # Overview of your research interests.
-  - Publications:                                    # A section for your publications.
+  - HOME: index.md                                   # The main landing page.
+  - ABOUT: about.md                                  # Information about yourself.
+  - RESEARCH: research.md                             # Overview of your research interests.
+  - PUBLICATIONS:                                    # A section for your publications.
       - Overview: publications/index.md
       - Selected Works: publications/selected.md
       - Preprints: publications/preprints.md
       - Covers: publications/covers.md
-  - Teaching: teaching.md                            # Courses taught, teaching philosophy, etc. (Optional)
-  - Resources: resources.md                          # Useful links, tools, or guides. (Optional)
-  - Contact: contact.md                              # Contact information. (Optional)
+  - TEACHING: teaching.md                            # Courses taught, teaching philosophy, etc. (Optional)
+  - RESOURCES: resources.md                          # Useful links, tools, or guides. (Optional)
+  - CONTACT: contact.md                              # Contact information. (Optional)
   # - [Custom Section Title]:
   #     - [Sub-page Title 1]: path/to/page1.md
   #     - [Sub-page Title 2]: path/to/page2.md
